@@ -1,0 +1,28 @@
+#bg{
+    background-color: rgb(15, 4, 36);
+    height: 100vh;
+}
+
+#main{
+    color: white;
+}
+
+.col{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    background-color: rgb(72, 20, 167);
+    border-radius: 5px;
+}
+
+.selected{
+    background-color: rgb(20, 138, 167);
+}
+
+.failedKeys{
+    background-color: gray;
+}
+
+#outcomeMsg{
+    opacity: 0;
+}
