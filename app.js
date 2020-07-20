@@ -1,53 +1,83 @@
-simon = () => {
-    let difficulty = 4;
+let keySet = false;
+
+simon = (difficulty) => {
+    let roundDifficulty = difficulty;
     let keySeq = [];
     let genSeq = [];
     let failed = false;
     let count = 0;
+    let blinkPeriod = 300;
 
+    console.log(keySeq);
 
     for(let i = 0; i < difficulty; i++){
         genSeq.push(1+Math.floor(Math.random() * Math.floor(4)))
     }
 
+    console.log(genSeq.join(''));
+
     clues = (i) => {
         $(`#b${genSeq[i]}`).addClass('selected');
-        setTimeout(() => $(`#b${genSeq[i]}`).removeClass('selected'), 160)
+        setTimeout(() => $(`#b${genSeq[i]}`).removeClass('selected'), 250)
     }
 
+
     function blinker(){
-        setTimeout(() => clues(0), 00)
-        setTimeout(() => clues(1), 200)
-        setTimeout(() => clues(2), 400)
-        setTimeout(() => clues(3), 600)
+        for(let i = 0; i < genSeq.length; i++){
+        setTimeout(() => clues(i), blinkPeriod*i)
+        //setTimeout(400);
+        }
     }
 
     blinker();
     
-    keyPress = (e) => {
+    keyPress = (e) => {                                             //FAILED
         keySeq.push(e.key);
         if(keySeq[count] != genSeq[count]){
+            console.log(keySeq, genSeq);
             failed = true;
             console.log("You've failed!")
             $('.keys').addClass('failedKeys')
             $('#outcomeMsg').css('opacity', 1)
+            $('.win').css('opacity', 0);
+            $('.loss').css('opacity', 1);
         }
         count++;
-        if (count == genSeq.length && !failed){
-            $('#outcomeMsg').html("<h3>You win!</h3>")
+        if (count == genSeq.length && !failed){                     //WIN
+            console.log("You've won!")
             $('#outcomeMsg').css('opacity', 1)
+            $('.win').css('opacity', 1);
+            $('.loss').css('opacity', 0);
         }
         
         $(`#b${e.key}`).addClass('selected');
         setTimeout(() => $(`#b${e.key}`).removeClass('selected'), 80)
     }
 
-    $('body').keydown((e) => {
-        if (e.key == 1){keyPress(e)};
-        if (e.key == 2){keyPress(e)};
-        if (e.key == 3){keyPress(e)};
-        if (e.key == 4){keyPress(e)};
-    });
-}
 
-simon();
+    console.log(keySet);
+    if(!keySet){
+        $('body').keydown((e) => {
+            if (e.key == 1) { keyPress(e) };
+            if (e.key == 2) { keyPress(e) };
+            if (e.key == 3) { keyPress(e) };
+            if (e.key == 4) { keyPress(e) };
+        });
+        keySet = true;
+    }
+
+    console.log(keySet);
+
+} //simon function ends
+
+let difficulty = 4;
+
+document.querySelector("#play").addEventListener("click", () => {
+    simon(difficulty);
+    document.querySelector("#play").style.visibility = "hidden";
+})
+
+document.querySelector("#nextRound").addEventListener("click", () => {
+    simon(++difficulty);
+    $('#outcomeMsg').css('opacity', 0)
+})
