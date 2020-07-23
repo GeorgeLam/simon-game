@@ -1,19 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #bg{
     background-color: rgb(15, 4, 36);
     height: 100vh;
+    color: white;
 }
 
 #main{
     color: white;
 }
 
-.col{
-    width: 200px;
-    height: 200px;
+.keys{
+    /* width: 200px; */
+    /* height: 200px; */
+    /* width: 50%;
+    height: 50%; */
     text-align: center;
     background-color: rgb(72, 20, 167);
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
+
+.game{
+    height: 80vh;
+}
+/* 
+.keys{
+    height: 20vh;
+    width: 30vh;
+} */
 
 .selected{
     background-color: rgb(20, 138, 167);
