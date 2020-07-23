@@ -41,7 +41,7 @@
     background-color: gray;
 }
 
-#play, #nextRound{
+#play, #nextRound, #retry{
     color: rgb(20, 138, 167);
     cursor: pointer;
 }

@@ -8,6 +8,9 @@ simon = (difficulty) => {
     let count = 0;
     let blinkPeriod = 300;
 
+    $('.keys').removeClass('failedKeys')
+
+
     console.log(keySeq);
 
     for(let i = 0; i < difficulty; i++){
@@ -24,7 +27,8 @@ simon = (difficulty) => {
 
     function blinker(){
         for(let i = 0; i < genSeq.length; i++){
-        setTimeout(() => clues(i), blinkPeriod*i)
+        setTimeout(()=>{}, 1000);
+        setTimeout(() => clues(i), blinkPeriod*i);
         //setTimeout(400);
         }
     }
@@ -32,7 +36,7 @@ simon = (difficulty) => {
     blinker();
     
     keyPress = (e) => {                                             //FAILED
-        keySeq.push(e.key);
+        keySeq.push(e);
         if(keySeq[count] != genSeq[count]){
             console.log(keySeq, genSeq);
             failed = true;
@@ -50,18 +54,25 @@ simon = (difficulty) => {
             $('.loss').css('opacity', 0);
         }
         
-        $(`#b${e.key}`).addClass('selected');
-        setTimeout(() => $(`#b${e.key}`).removeClass('selected'), 80)
+        $(`#b${e}`).addClass('selected');
+        setTimeout(() => $(`#b${e}`).removeClass('selected'), 80)
     }
 
 
     console.log(keySet);
     if(!keySet){
         $('body').keydown((e) => {
-            if (e.key == 1) { keyPress(e) };
-            if (e.key == 2) { keyPress(e) };
-            if (e.key == 3) { keyPress(e) };
-            if (e.key == 4) { keyPress(e) };
+            if (e.key == 1) { keyPress(e.key) };
+            if (e.key == 2) { keyPress(e.key) };
+            if (e.key == 3) { keyPress(e.key) };
+            if (e.key == 4) { keyPress(e.key) };
+        });
+        $('.game').click((e) => {
+            console.log((e.target.id).slice(1));
+            if ((e.target.id).slice(1) == 1) { keyPress((e.target.id).slice(1)) };
+            if ((e.target.id).slice(1) == 2) { keyPress((e.target.id).slice(1)) };
+            if ((e.target.id).slice(1) == 3) { keyPress((e.target.id).slice(1)) };
+            if ((e.target.id).slice(1) == 4) { keyPress((e.target.id).slice(1)) };
         });
         keySet = true;
     }
@@ -79,5 +90,11 @@ document.querySelector("#play").addEventListener("click", () => {
 
 document.querySelector("#nextRound").addEventListener("click", () => {
     simon(++difficulty);
+    $('#outcomeMsg').css('opacity', 0)
+})
+
+document.querySelector("#retry").addEventListener("click", () => {
+    difficulty = 4;
+    simon(difficulty);
     $('#outcomeMsg').css('opacity', 0)
 })
