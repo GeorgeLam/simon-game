@@ -67,8 +67,8 @@ simon = (difficulty) => {
             if (e.key == 3) { keyPress(e.key) };
             if (e.key == 4) { keyPress(e.key) };
         });
-        $('.game').on('tap', (e) => {
-            console.log("tapped");
+        $('.game').on('touchstart', (e) => {
+            console.log("touch");
             console.log((e.target.id).slice(1));
             if ((e.target.id).slice(1) == 1) { keyPress((e.target.id).slice(1)) };
             if ((e.target.id).slice(1) == 2) { keyPress((e.target.id).slice(1)) };
