@@ -8,21 +8,6 @@
     color: white;
 }
 
-.gamerows{
-    width: 100%;
-    height: 60%;
-}
-
-.gamerows .row{
-        /*background-color: #ffffff;*/
-        height: 100%;
-}
-
-
-.game{
-    height: 70%;
-}
-
 #main{
     color: white;
 }
