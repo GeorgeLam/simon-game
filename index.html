@@ -16,49 +16,56 @@
 </head>
 
 <body>
-    
-    <div class="container-fluid d-flex flex-column justify-content-center align-items-center" id="bg">
-        <div class="row mt-3">
-            <h1>Simon Game</h1>
-        </div>
-        <div class="row mb-3">
-            <h4 id="play">Play now!</h4>
-        </div>
 
-        <div class="game row w-100 d-flex flex-row justify-content-center">
-            <div class="col col-5 col-xl-3 mx-1 mx-xl-3 my-1 rounded keys d-flex align-items-center justify-content-center" id="b1">1</div>
-            <div class="col col-5 col-xl-3 mx-1 mx-xl-3 my-1 rounded keys d-flex align-items-center justify-content-center" id="b2">2</div>
-        </div>
-        <div class="game row w-100 d-flex flex-row justify-content-center">
-            <div class="col col-5 col-xl-3 mx-1 mx-xl-3 my-1 rounded keys d-flex align-items-center justify-content-center" id="b3">3</div>
-            <div class="col col-5 col-xl-3 mx-1 mx-xl-3 my-1 rounded keys d-flex align-items-center justify-content-center" id="b4">4</div>
-        </div>
+    <div class="container-fluid d-flex flex-column justify-content-center" id="bg">
+        <div class="hold h-100 d-flex flex-column justify-content-center align-items-center py-5 align-middle">
+            <div class="row mt-3">
+                <h1>Simon Says</h1>
+            </div>
+            <div class="row mb-3">
+                <h4 id="play">Play now!</h4>
+            </div>
+            <!--<div class="gamerows">-->
+            <div class="game row w-100 d-flex flex-row justify-content-center">
+                <div class="col col-5 col-xl-2 mx-1 mx-xl-3 my-1 p-5 rounded keys d-flex align-items-center justify-content-center"
+                    id="b1">1</div>
+                <div class="col col-5 col-xl-2 mx-1 mx-xl-3 my-1 p-5 rounded keys d-flex align-items-center justify-content-center"
+                    id="b2">2</div>
+            </div>
+            <div class="game row w-100 d-flex flex-row justify-content-center">
+                <div class="col col-5 col-xl-2 mx-1 mx-xl-3 my-1 p-5 rounded keys d-flex align-items-center justify-content-center"
+                    id="b3">3</div>
+                <div class="col col-5 col-xl-2 mx-1 mx-xl-3 my-1 p-5 rounded keys d-flex align-items-center justify-content-center"
+                    id="b4">4</div>
+                <!--</div>-->
+            </div>
 
-        <div class="row" id="outcomeMsg">
-            <div class="loss">
-                <h3 id="failMsg">You've failed...</h3>
-                <h4 id='retry'>Try again?</h4>
+            <div class="row" id="outcomeMsg">
+                <div class="loss">
+                    <h3 id="failMsg">You've failed...</h3>
+                    <h4 id='retry'>Try again?</h4>
+                </div>
+                <div class="win">
+                    <h3 id="winMsg">You won this round!</h3>
+                    <h4 id='nextRound'>Next round?</h4>
+                </div>
             </div>
-            <div class="win">
-                <h3 id="winMsg">You won this round!</h3>
-                <h4 id='nextRound'>Next round?</h4>
-            </div>
+        </div>
     </div>
-     
-            
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="./app.js"></script>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+        <script src="./app.js"></script>
 </body>
 
 </html>
